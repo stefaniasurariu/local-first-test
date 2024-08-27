@@ -17,6 +17,9 @@ const NoteComponent: React.FC = () => {
   //   fetchNotes();
   // }, []);
 
+
+  ///
+
   useEffect(() => {
     const fetchAndSyncNotes = async () => {
       await syncNotesWithServer();
