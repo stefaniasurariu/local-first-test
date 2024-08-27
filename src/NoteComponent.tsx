@@ -1,24 +1,12 @@
 // src/NoteComponent.tsx
 import React, { useState, useEffect } from 'react';
-import { getNotes, addNote, updateNote, deleteNote, syncNotesWithServer } from './NoteService';
+import { getNotes, addNote, syncNotesWithServer } from './NoteService';
 import { Note } from './db';
 
 const NoteComponent: React.FC = () => {
   const [notes, setNotes] = useState<Note[]>([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-
-  // useEffect(() => {
-  //   const fetchNotes = async () => {
-  //     const allNotes = await getNotes();
-  //     setNotes(allNotes);
-  //   };
-
-  //   fetchNotes();
-  // }, []);
-
-
-  ///
 
   useEffect(() => {
     const fetchAndSyncNotes = async () => {
@@ -36,8 +24,6 @@ const NoteComponent: React.FC = () => {
     setContent('');
     setNotes(await getNotes());
   };
-
-  // Rest of the component...
 
   return (
     <div>
