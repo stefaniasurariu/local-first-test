@@ -34,12 +34,16 @@ export const syncNotesWithServer = async () => {
 
 export const addNote = async (title: string, content: string) => {
   const note = { title, content };
+  const stringNote = {"title": `${note.title}`, "content": `${note.content}`}
+
+  const forParse = JSON.stringify(stringNote)
   const response = await fetch(`${SERVER_URL}/notes`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.parse(`{"title": "${note.title}", "content": "${note.content}"}`),
+
+    body: JSON.parse(forParse),
   });
   const newNote = await response.json();
   await db.notes.add(newNote);
