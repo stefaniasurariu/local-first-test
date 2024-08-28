@@ -13,7 +13,7 @@ export const deleteNote = async (id: number) => {
   await db.notes.delete(id);
 };
 
-const SERVER_URL = 'https://local-first-test-3.onrender.com';
+const SERVER_URL = 'https://local-first-test.vercel.app';
 
 export const syncNotesWithServer = async () => {
   const response = await fetch(`${SERVER_URL}/notes`);
