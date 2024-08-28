@@ -33,7 +33,7 @@ export const syncNotesWithServer = async () => {
 };
 
 export const addNote = async (title: string, content: string) => {
-  const note = { title, content, updatedAt: new Date() };
+  const note = { title, content };
   const response = await fetch(`${SERVER_URL}/notes`, {
     method: 'POST',
     headers: {
