@@ -39,7 +39,7 @@ export const addNote = async (title: string, content: string) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(note),
+    body: JSON.parse(`title: ${note.title}; content: ${note.content}`),
   });
   const newNote = await response.json();
   await db.notes.add(newNote);
